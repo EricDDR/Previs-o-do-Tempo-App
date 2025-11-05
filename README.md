@@ -1,103 +1,36 @@
-Previsão do Tempo App
+# ☀️ Projeto Final: Aplicativo de Previsão do Tempo (React Native c/ API)
 
-Aplicativo móvel desenvolvido em React Native (Expo) para consumir e exibir dados de previsão do tempo em tempo real, utilizando a API do OpenWeatherMap. Este projeto foi estruturado com forte modularização, seguindo o padrão de navegação do Expo Router.
+Este projeto consiste em um aplicativo móvel de previsão do tempo, desenvolvido em **React Native (Expo)**, que atende a todos os requisitos do Projeto Final, com foco em modularização e consumo de uma API REST pública.
 
- Funcionalidades
+## ✨ Requisitos do Projeto (Atendidos)
 
-Busca por Nome: Pesquisa de previsão do tempo em qualquer cidade do mundo.
+| Requisito | Status | Implementação |
+| :--- | :--- | :--- |
+| **R1:** Desenvolvido em React Native (Expo) | ✅ | Utilização da plataforma Expo para desenvolvimento. |
+| **R2:** Consumir ao menos uma API REST (GET) | ✅ | Uso da API **OpenWeatherMap** (método `GET`) centralizado no `hooks/useWeatherApi.js`. |
+| **R3:** Possuir duas ou mais telas | ✅ | Estrutura com **Tela de Busca (`index.tsx`)** e **Tela de Resultados (`[city].tsx`)**, utilizando **Expo Router**. |
+| **R4:** Exibir dados reais/simulados | ✅ | Exibição de temperatura, umidade, vento, pressão e ícone de clima. |
+| **R5:** Tratamento básico de erro | ✅ | Lógica de `try/catch` no *hook* para falha na requisição e validação de dados inválidos (cidade não encontrada). |
+| **R6:** Código organizado, legível e comentado | ✅ | Implementação de **Modularização** em pastas `hooks`, `components` e `constants`. |
+| **R7:** Interface funcional e clara | ✅ | Estilização das telas e do componente `<WeatherCard />`, incluindo a funcionalidade extra de **busca por localização GPS**. |
 
-Busca por Localização (GPS): Utilização das coordenadas do usuário (expo-location) para obter a previsão imediata.
+## 🛠️ Tecnologias Principais
 
-Interface Clara: Exibição de temperatura, umidade, pressão, velocidade do vento e ícone visual do clima.
+* **Front-end:** React Native (com funcionalidade de localização via `expo-location`).
+* **Navegação:** Expo Router (para gerenciar as duas telas).
+* **API:** OpenWeatherMap.
 
-Tratamento de Erro: Lógica robusta para lidar com falhas de API (ex: cidade não encontrada) e erros de conexão.
+## ⚙️ Instalação e Execução
 
-Modularização: Separação da lógica de UI, API e navegação em módulos reutilizáveis.
+### 1. Pré-requisitos
 
- Tecnologias Utilizadas
+Certifique-se de ter o Node.js e o Expo CLI instalados.
 
-Framework: React Native
+### 2. Configuração da API Key
 
-Ambiente: Expo
+Você deve obter sua chave na plataforma OpenWeatherMap e inseri-la no arquivo **`constants/config.js`**:
 
-Navegação: Expo Router
-
-API: OpenWeatherMap
-
-Localização: expo-location
-
- Configuração e Instalação
-
-Siga os passos abaixo para configurar e rodar o projeto localmente.
-
-Pré-requisitos
-
-Certifique-se de ter o Node.js, npm/yarn e o Expo CLI instalados:
-
-npm install -g expo-cli # Caso ainda use a versão global
-
-
-
-(Recomendado: Use npx expo <comando> para a versão local.)
-
-1. Clonar o Repositório
-
-git clone [URL_DO_SEU_REPOSITORIO]
-cd PrevisaoDoTempoApp
-
-
-
-2. Instalar Dependências
-
-npm install
-# ou
-yarn install
-
-
-
-3. Configurar a Chave da API
-
-O projeto utiliza o OpenWeatherMap. É necessário obter sua chave e configurá-la no arquivo de constantes.
-
-Crie uma conta no OpenWeatherMap.
-
-Obtenha sua API Key.
-
-Crie o arquivo constants/config.js na raiz do projeto e insira sua chave:
-
+```javascript
 // constants/config.js
-export const API_KEY = "SUA_CHAVE_OBTIDA_AQUI"; 
+export const API_KEY = "SUA_CHAVE_REAL_AQUI"; 
 export const WEATHER_API_URL = "[https://api.openweathermap.org/data/2.5/weather](https://api.openweathermap.org/data/2.5/weather)";
-
-
-
-4. Rodar o Aplicativo
-
-Use o comando recomendado do Expo para iniciar o servidor:
-
-npx expo start
-
-
-
-Para testar em um dispositivo móvel (via túnel):
-
-npx expo start --tunnel
-
-
-
-Estrutura do Código (Modularização)
-
-O código foi dividido em módulos para facilitar a manutenção e a clareza (Requisito 6):
-
-.
-├── app/
-│   ├── (tabs)/
-│   │   ├── index.tsx         # Tela de Busca (UI e lógica de navegação)
-│   │   └── [city].tsx        # Tela de Resultados (Recebe e exibe dados)
-├── components/
-│   └── WeatherCard.js        # Componente de Apresentação de Dados do Clima (Reutilizável)
-├── hooks/
-│   └── useWeatherApi.js      # Lógica de Chamada HTTP e Tratamento de Erro (Requisito 2 e 5)
-└── constants/
-    └── config.js             # API Key e URLs base
-
