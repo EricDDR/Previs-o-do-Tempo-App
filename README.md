@@ -1,36 +1,50 @@
-# ☀️ Projeto Final: Aplicativo de Previsão do Tempo (React Native c/ API)
+# Welcome to your Expo app 👋
 
-Este projeto consiste em um aplicativo móvel de previsão do tempo, desenvolvido em **React Native (Expo)**, que atende a todos os requisitos do Projeto Final, com foco em modularização e consumo de uma API REST pública.
+This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
 
-## ✨ Requisitos do Projeto (Atendidos)
+## Get started
 
-| Requisito | Status | Implementação |
-| :--- | :--- | :--- |
-| **R1:** Desenvolvido em React Native (Expo) | ✅ | Utilização da plataforma Expo para desenvolvimento. |
-| **R2:** Consumir ao menos uma API REST (GET) | ✅ | Uso da API **OpenWeatherMap** (método `GET`) centralizado no `hooks/useWeatherApi.js`. |
-| **R3:** Possuir duas ou mais telas | ✅ | Estrutura com **Tela de Busca (`index.tsx`)** e **Tela de Resultados (`[city].tsx`)**, utilizando **Expo Router**. |
-| **R4:** Exibir dados reais/simulados | ✅ | Exibição de temperatura, umidade, vento, pressão e ícone de clima. |
-| **R5:** Tratamento básico de erro | ✅ | Lógica de `try/catch` no *hook* para falha na requisição e validação de dados inválidos (cidade não encontrada). |
-| **R6:** Código organizado, legível e comentado | ✅ | Implementação de **Modularização** em pastas `hooks`, `components` e `constants`. |
-| **R7:** Interface funcional e clara | ✅ | Estilização das telas e do componente `<WeatherCard />`, incluindo a funcionalidade extra de **busca por localização GPS**. |
+1. Install dependencies
 
-## 🛠️ Tecnologias Principais
+   ```bash
+   npm install
+   ```
 
-* **Front-end:** React Native (com funcionalidade de localização via `expo-location`).
-* **Navegação:** Expo Router (para gerenciar as duas telas).
-* **API:** OpenWeatherMap.
+2. Start the app
 
-## ⚙️ Instalação e Execução
+   ```bash
+   npx expo start
+   ```
 
-### 1. Pré-requisitos
+In the output, you'll find options to open the app in a
 
-Certifique-se de ter o Node.js e o Expo CLI instalados.
+- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
+- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
+- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
+- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
 
-### 2. Configuração da API Key
+You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
 
-Você deve obter sua chave na plataforma OpenWeatherMap e inseri-la no arquivo **`constants/config.js`**:
+## Get a fresh project
 
-```javascript
-// constants/config.js
-export const API_KEY = "SUA_CHAVE_REAL_AQUI"; 
-export const WEATHER_API_URL = "[https://api.openweathermap.org/data/2.5/weather](https://api.openweathermap.org/data/2.5/weather)";
+When you're ready, run:
+
+```bash
+npm run reset-project
+```
+
+This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+
+## Learn more
+
+To learn more about developing your project with Expo, look at the following resources:
+
+- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
+- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+
+## Join the community
+
+Join our community of developers creating universal apps.
+
+- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
+- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
