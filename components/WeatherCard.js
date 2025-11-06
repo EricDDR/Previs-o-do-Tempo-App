@@ -1,7 +1,7 @@
 import React from 'react';
-import { Image, StyleSheet, Text, View } from 'react-native'; // <-- Adicionando 'Image'
+import { Image, StyleSheet, Text, View } from 'react-native'; 
 
-// O componente agora recebe iconCode
+
 const WeatherCard = ({ city, mainData, weatherDescription, windSpeed, pressure, iconCode }) => {
   
   if (!mainData || !weatherDescription) return null;
@@ -11,7 +11,6 @@ const WeatherCard = ({ city, mainData, weatherDescription, windSpeed, pressure, 
   const tempMin = Math.round(mainData.temp_min);
   const feelsLike = Math.round(mainData.feels_like);
   
-  // URL da imagem do ícone da OpenWeatherMap (Requisito 7: Melhoria de Interface)
   const iconUrl = iconCode ? `https://openweathermap.org/img/wn/${iconCode}@4x.png` : null;
 
   return (
@@ -23,8 +22,7 @@ const WeatherCard = ({ city, mainData, weatherDescription, windSpeed, pressure, 
       {iconUrl && (
         <Image
           style={styles.weatherIcon}
-          source={{ uri: iconUrl }}
-          // Adicione um ícone de fallback se quiser, mas a URL do OWM é geralmente confiável
+          source={{ uri: iconUrl }
           accessibilityLabel={weatherDescription} 
         />
       )}
@@ -76,11 +74,11 @@ const styles = StyleSheet.create({
     width: '100%',
     maxWidth: 400,
   },
-  // NOVO ESTILO: Define o tamanho do ícone
+ 
   weatherIcon: { 
     width: 120, 
     height: 120, 
-    marginBottom: -10, // Ajuste para posicionamento
+    marginBottom: -10, 
   },
   cityText: {
     fontSize: 34,
@@ -146,5 +144,6 @@ const styles = StyleSheet.create({
     color: '#333',
   }
 });
+
 
 export default WeatherCard;
