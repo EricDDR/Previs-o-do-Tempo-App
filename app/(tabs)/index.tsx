@@ -2,36 +2,35 @@ import { useRouter } from 'expo-router';
 import React, { useState } from 'react';
 import {
   ActivityIndicator,
-  Alert, // Usaremos TouchableOpacity para um botão personalizado
+  Alert, 
   StyleSheet,
   Text,
   TextInput,
   TouchableOpacity,
   View
 } from 'react-native';
-import { useWeatherApi } from '../../hooks/useWeatherApi'; // Importa o hook
+import { useWeatherApi } from '../../hooks/useWeatherApi'; 
 
 export default function SearchScreen() {
   const [cityInput, setCityInput] = useState('');
   const router = useRouter(); 
   
-  // O hook agora retorna o estado de erro, que usaremos para feedback
+
   const { loading, error, fetchWeather } = useWeatherApi();
 
   const handleSearch = async () => {
-    // 1. Validação básica
+    
     if (!cityInput.trim()) {
       Alert.alert('Atenção', 'Por favor, digite o nome da cidade.'); 
       return;
     }
 
     try {
-      // 2. Chama a função de busca modularizada
+      
       const data = await fetchWeather(cityInput.trim());
       
-      // Se a busca for bem-sucedida, navega.
       if (data) {
-        // 3. Navegação (passando os dados)
+      
         router.push({
           pathname: `/[city]`, 
           params: { 
@@ -42,8 +41,6 @@ export default function SearchScreen() {
       }
       
     } catch (e) {
-      // O erro é tratado no hook e exibido abaixo, não precisa de Alert aqui
-      // Apenas garantimos que o bloco de erro seja executado
       const errorMessage = e instanceof Error ? e.message : 'Ocorreu um erro desconhecido.';
       console.error("Erro na busca de UI:", errorMessage);
     }
@@ -96,20 +93,20 @@ const styles = StyleSheet.create({
     flex: 1,
     padding: 30,
     justifyContent: 'center',
-    backgroundColor: '#E6E6FA', // Fundo lavanda suave
+    backgroundColor: '#E6E6FA',
   },
   title: {
     fontSize: 36,
     fontWeight: 'bold',
     marginBottom: 10,
     textAlign: 'center',
-    color: '#4B0082', // Índigo
+    color: '#4B0082', 
   },
   subtitle: {
     fontSize: 18,
     marginBottom: 50,
     textAlign: 'center',
-    color: '#6A5ACD', // Slate Blue
+    color: '#6A5ACD', 
   },
   input: {
     height: 55,
@@ -128,7 +125,7 @@ const styles = StyleSheet.create({
   },
   button: {
     height: 50,
-    backgroundColor: '#FF7043', // Laranja vibrante
+    backgroundColor: '#FF7043', 
     borderRadius: 10,
     justifyContent: 'center',
     alignItems: 'center',
@@ -150,10 +147,10 @@ const styles = StyleSheet.create({
   errorBox: {
     marginTop: 20,
     padding: 15,
-    backgroundColor: '#FFCDD2', // Fundo vermelho claro para erro
+    backgroundColor: '#FFCDD2', 
     borderRadius: 8,
     borderWidth: 1,
-    borderColor: '#D32F2F', // Borda vermelha escura
+    borderColor: '#D32F2F', 
   },
   errorText: {
     color: '#D32F2F',
